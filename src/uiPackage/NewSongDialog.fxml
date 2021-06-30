@@ -1,0 +1,24 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:controller="uiPackage.NewSongController" prefHeight="400" prefWidth="400"
+            xmlns:fx="http://javafx.com/fxml">
+
+<center>
+    <VBox spacing="15">
+        <Label text="Song Name"/>
+        <TextField fx:id="songName"/>
+        <Label text="Album Name"/>
+        <TextField fx:id="albumName"/>
+        <Label text= "Artist Name"/>
+        <TextField fx:id="artistName"/>
+        <Label text="Track Number"/>
+        <TextField fx:id="trackNumber"/>
+    </VBox>
+</center>
+
+
+
+</BorderPane>

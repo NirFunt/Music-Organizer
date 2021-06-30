@@ -1,0 +1,135 @@
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<GridPane fx:id="mainWindow" fx:controller="uiPackage.Controller" prefHeight="800" prefWidth="600"
+          xmlns:fx="http://javafx.com/fxml" hgap="3">
+
+        <TableView prefWidth="500" prefHeight="700" fx:id ="artistTable"
+                   GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="35" GridPane.rowSpan="50">
+            <columns>
+                <TableColumn text ="ID" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text ="Name" prefWidth="200">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+
+    <TableView fx:id="albumTable" prefWidth="500" prefHeight="700"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="35" GridPane.rowSpan="50"
+               visible="false">
+        <columns>
+            <TableColumn text="Name" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <TableView fx:id="songTable" prefWidth="500" prefHeight="700"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="35" GridPane.rowSpan="50"
+                visible="false">
+        <columns>
+            <TableColumn text="Track" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="track" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Title" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="title"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <TableView fx:id="saatTable" visible="false"  prefWidth="500" prefHeight="700"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="35" GridPane.rowSpan="50">
+        <columns>
+            <TableColumn text="Song" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="songName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Album" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="albumName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Aritst" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="artistName"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox alignment="TOP_LEFT" GridPane.valignment="TOP">
+        <MenuBar>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New" onAction="#newSong"/>
+                    <MenuItem text="Find Song" onAction="#searchSong"/>
+                    <MenuItem text="Exit" onAction="#exit"/>
+                </items>
+            </Menu>
+        <Menu text="Show">
+            <items>
+                <MenuItem text="Artists" onAction="#getArtists"/>
+                <MenuItem text="Albums" onAction="#getAlbums"/>
+                <MenuItem text="Songs" onAction="#getSongs"/>
+                <MenuItem text="All" onAction="#queryView"/>
+            </items>
+        </Menu>
+            <Menu text="PlayList">
+                <MenuItem text="Add" onAction="#addPlayList"/>
+                <MenuItem text="Refresh" onAction="#loadPlayLists"/>
+                <MenuItem text="Save" onAction="#savePlayLists"/>
+            </Menu>
+        </MenuBar>
+    </HBox>
+    <Label text="PlayLists" GridPane.rowIndex="1" GridPane.columnIndex="51"/>
+ <VBox GridPane.rowIndex="2" GridPane.columnIndex="51" spacing="35">
+
+     <ListView fx:id="playListListView" prefWidth="200" prefHeight="200">
+     </ListView>
+
+     <TableView fx:id="playListTable" prefWidth="250" prefHeight="350">
+         <columns>
+             <TableColumn text="Artist" prefWidth="100">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="artistName"/>
+                 </cellValueFactory>
+             </TableColumn>
+             <TableColumn text="Song" prefWidth="150">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="songName"/>
+                 </cellValueFactory>
+             </TableColumn>
+         </columns>
+     </TableView>
+ </VBox>
+
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="100" spacing="20" scaleX="2" >
+        <ProgressBar fx:id="progressBar" visible="false"/>
+    </VBox>
+
+
+</GridPane>
